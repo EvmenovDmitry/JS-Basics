@@ -125,7 +125,7 @@ let moreArr = [5, 9, 21, , , 9, 78, , , , 6];
 var count = 0;
 console.log(moreArr);
 for (var i = 0; i < moreArr.length; i++) {
-    if (isNaN(moreArr[i])) count++;
+    if (moreArr[i] == null) count++;
 }
 console.log(count);
 

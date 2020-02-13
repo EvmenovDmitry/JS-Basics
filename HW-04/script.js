@@ -149,3 +149,20 @@ for (var i = 0; i < someStr.length; i++) {
 }
 console.log(someStr);
 console.log(Math.max.apply(null, someStr));
+
+
+console.log('\n--- task 10 ---');
+
+var n = 123456789;
+let count = 0;
+let sum = 0;
+
+for (var i = 0; i < String(n).length; i++) {
+    console.log('a.', String(n)[i]);
+    count++;
+    sum = sum + Number(String(n)[i]);
+}
+
+console.log('b.', count);
+console.log('c.', sum);
+console.log('d.', ((String(n).split('')).reverse().join('')));

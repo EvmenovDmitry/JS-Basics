@@ -118,3 +118,16 @@ for (var a = 2; a <= 10; a++) {
     }
     console.log('---------------');
 }
+
+
+console.log('\n--- task 07 ---');
+
+var n = 1000;
+let num = 0;
+
+while (n > 50) {
+    n /= 2;
+    console.log(n);
+    num++;
+}
+console.log('iterations: ' + num);

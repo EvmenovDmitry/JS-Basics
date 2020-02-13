@@ -67,3 +67,42 @@ for (var i = 1; i <= 5; i++) {
     }
     console.log(i + ': ' + n);
 }
+
+
+console.log('\n--- task 05 ---');
+
+//(for) way #1
+var someArr = [];
+for (var i = 8; i <= 56; i += 2) {
+    someArr.push(i);
+}
+console.log(someArr);
+
+//(for) way #2
+var someArr = [];
+for (var i = 8; i <= 56; i++) {
+    if ((i % 2) == 0) {
+        someArr.push(i);
+    }
+}
+console.log(someArr);
+
+//(while) way #1
+var someArr = [];
+var i = 8;
+while (i <= 56) {
+    someArr.push(i);
+    i += 2;
+}
+console.log(someArr);
+
+//(while) way #2
+var someArr = [];
+var i = 8;
+while (i <= 56) {
+    if ((i % 2) == 0) {
+        someArr.push(i);
+    }
+    i++;
+}
+console.log(someArr);

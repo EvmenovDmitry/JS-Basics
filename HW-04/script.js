@@ -131,3 +131,21 @@ while (n > 50) {
     num++;
 }
 console.log('iterations: ' + num);
+
+
+// console.log('\n--- task 08 ---');
+// console.log('уже делал что-то подобное');
+
+
+
+console.log('\n--- task 09 ---');
+
+let someStr = '4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57';
+someStr = someStr.split(' ');
+console.log(someStr);
+
+for (var i = 0; i < someStr.length; i++) {
+    someStr.push(Number(someStr.shift(someStr)));
+}
+console.log(someStr);
+console.log(Math.max.apply(null, someStr));

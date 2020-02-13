@@ -35,8 +35,8 @@ console.log(outNum('abc', 'lol'));
 
 console.log('\n--- task 02 ---');
 
-let a = 89;
-let b = 11;
+var a = 89;
+var b = 11;
 
 var i = a;
 while (i >= b) {
@@ -106,3 +106,15 @@ while (i <= 56) {
     i++;
 }
 console.log(someArr);
+
+
+console.log('\n--- task 06 ---');
+
+var c = 0;
+for (var a = 2; a <= 10; a++) {
+    for (var b = 2; b <= 10; b++) {
+        c = a * b;
+        console.log(`${a} * ${b} = ${c}`);
+    }
+    console.log('---------------');
+}

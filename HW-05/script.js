@@ -45,3 +45,57 @@ function infoBlock() {
 }
 
 infoBlock();
+
+
+console.log('\n--- task #2 ---');
+
+
+function triangle(rowsTriangle) {
+
+    let fillThisRow = 1;
+    let spaceThisRow = 0;
+
+    //узнаём общую ширину треугольника
+    let lastRowLen = rowsTriangle * 2 - 1;
+
+    for (var i = 0; i < rowsTriangle; i++) {
+        //узнаём кол-во пробелов до и после "х"
+        spaceThisRow = (lastRowLen - fillThisRow) / 2;
+
+        console.log(' '.repeat(spaceThisRow) + 'x'.repeat(fillThisRow) + ' '.repeat(spaceThisRow));
+
+        fillThisRow += 2;
+    }
+}
+
+triangle(4);
+triangle(8);
+triangle(16);
+
+console.log('--- --- --- --- --- --- --- ---');
+
+function triangleRev(rowsTriangle) {
+
+    let spaceThisRow = 0;
+
+    //узнаём общую ширину треугольника
+    let lastRowLen = rowsTriangle * 2 - 1;
+
+    let fillThisRow = lastRowLen;
+
+    for (var i = lastRowLen + 1; i > rowsTriangle; i--) {
+        //узнаём кол-во пробелов до и после "х"
+        spaceThisRow = (lastRowLen - fillThisRow) / 2;
+
+        console.log(' '.repeat(spaceThisRow) + 'x'.repeat(fillThisRow) + ' '.repeat(spaceThisRow));
+
+        fillThisRow -= 2;
+    }
+}
+
+triangleRev(16);
+triangleRev(8);
+triangleRev(4);
+
+
+console.log('\n--- task #3 ---');

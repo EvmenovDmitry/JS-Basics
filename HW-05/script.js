@@ -102,7 +102,7 @@ console.log('\n--- task #3 ---');
 
 let allowStr = ['@', '_', '-', '.'];
 
-let emailStr = 'al-al.al_@gmail.com';
+let emailStr = 'al-al..al_@gmail.com';
 
 console.log('s'.charCodeAt());
 
@@ -118,18 +118,33 @@ for (i = 0; i <= emailStr.length; i++) {
 }
 
 if (counter == 1) {
-    console.log('@ success');
+    console.log('1@ -> success');
 
     //проверка на латинские и допустимые символы
-    for (i = 0; i <= emailStr.length; i++) {
-        if ((emailStr[i].charCodeAt() >= 65 && emailStr[i].charCodeAt() <= 90) ||
-            (emailStr[i].charCodeAt() >= 97 && emailStr[i].charCodeAt() <= 122)) {
+    for (i = 0; i < emailStr.length; i++) {
+        if (
+            (emailStr[i].charCodeAt() >= 65 && emailStr[i].charCodeAt() <= 90) ||
+            (emailStr[i].charCodeAt() >= 97 && emailStr[i].charCodeAt() <= 122) ||
+            (emailStr[i] == '@' || emailStr[i] == '_' || emailStr[i] == '-' || emailStr[i] == '.')
+        ) {
             console.log(emailStr[i], 'correct');
+
+            //проверяем повторяемость спец-символов
+            if ((emailStr[i] == '@' && emailStr[i] == emailStr[i + 1]) ||
+                (emailStr[i] == '_' && emailStr[i] == emailStr[i + 1]) ||
+                (emailStr[i] == '-' && emailStr[i] == emailStr[i + 1]) ||
+                (emailStr[i] == '.' && emailStr[i] == emailStr[i + 1])) {
+                console.log(emailStr[i], emailStr[i + 1], 'ERROR');
+                break;
+            }
+
+
         } else {
             console.log(emailStr[i], 'incorrect');
             break
         }
     }
+    console.log('hmmm');
 } else {
     console.log('@ error');
 }

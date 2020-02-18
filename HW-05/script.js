@@ -104,7 +104,7 @@ console.log('\n--- task #3 ---');
 var counter = 0;
 var error;
 let allowStr = ['@', '_', '-', '.'];
-let emailStr = 'al-al.al@gmail.com';
+let emailStr = 'al-123al.al@gmail.com';
 
 
 //считаем кол-во '@'
@@ -117,10 +117,20 @@ for (i = 0; i <= emailStr.length; i++) {
 if (counter == 1) {
     for (var n = 0; n < emailStr.length; n++) {
 
-        //проверка на латинские и допустимые символы
-        if ((emailStr[n].charCodeAt() >= 65 && emailStr[n].charCodeAt() <= 90) ||
+
+
+        //проверка на латинские, допустимые символы и цифры
+        if (isFinite(Number(emailStr[n])) ||
+            (emailStr[n].charCodeAt() >= 65 && emailStr[n].charCodeAt() <= 90) ||
             (emailStr[n].charCodeAt() >= 97 && emailStr[n].charCodeAt() <= 122) ||
             (emailStr[n] == '@' || emailStr[n] == '_' || emailStr[n] == '-' || emailStr[n] == '.')) {
+
+            //узнаем, цифра ли это, и стоит ли она в начале или конце
+            if (isFinite(Number(emailStr[n]))) {
+                if (emailStr[n] == emailStr[0] || emailStr[n] == emailStr.slice(-1)) {
+                    error = emailStr[n] + ' :start/end num error';
+                }
+            }
 
             //проверяем повторяемость спец-символов:
             //перебираем строку
@@ -132,7 +142,7 @@ if (counter == 1) {
 
                         //проверяем, стоят ли спец-символы в начале или конце
                         if ((emailStr[i] == allowStr[ii]) && (emailStr[i] == emailStr[0] || emailStr[i] == emailStr.slice(-1))) {
-                            error = emailStr[i] + ' :start/end error';
+                            error = emailStr[i] + ' :start/end char error';
                         }
 
                         //проверяем на совпадение со следующим символом

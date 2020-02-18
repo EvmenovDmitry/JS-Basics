@@ -68,9 +68,9 @@ function triangle(rowsTriangle) {
     }
 }
 
-triangle(4);
-triangle(8);
-triangle(16);
+triangle(3);
+triangle(6);
+triangle(12);
 
 console.log('--- --- --- --- --- --- --- ---');
 
@@ -93,9 +93,9 @@ function triangleRev(rowsTriangle) {
     }
 }
 
-triangleRev(16);
-triangleRev(8);
-triangleRev(4);
+triangleRev(12);
+triangleRev(6);
+triangleRev(3);
 
 
 console.log('\n--- task #3 ---');

@@ -99,3 +99,37 @@ triangleRev(3);
 
 
 console.log('\n--- task #3 ---');
+
+let allowStr = ['@', '_', '-', '.'];
+
+let emailStr = 'al-al.al_@gmail.com';
+
+console.log('s'.charCodeAt());
+
+console.log(emailStr.length);
+
+//считаем кол-во '@'
+var counter = 0;
+for (i = 0; i <= emailStr.length; i++) {
+    if (emailStr[i] == '@') {
+        counter++;
+        console.log(counter);
+    }
+}
+
+if (counter == 1) {
+    console.log('@ success');
+
+    //проверка на латинские и допустимые символы
+    for (i = 0; i <= emailStr.length; i++) {
+        if ((emailStr[i].charCodeAt() >= 65 && emailStr[i].charCodeAt() <= 90) ||
+            (emailStr[i].charCodeAt() >= 97 && emailStr[i].charCodeAt() <= 122)) {
+            console.log(emailStr[i], 'correct');
+        } else {
+            console.log(emailStr[i], 'incorrect');
+            break
+        }
+    }
+} else {
+    console.log('@ error');
+}

@@ -100,51 +100,63 @@ triangleRev(3);
 
 console.log('\n--- task #3 ---');
 
+
+var counter = 0;
+var error;
 let allowStr = ['@', '_', '-', '.'];
+let emailStr = 'al-al.al@gmail.com';
 
-let emailStr = 'al-al..al_@gmail.com';
-
-console.log('s'.charCodeAt());
-
-console.log(emailStr.length);
 
 //считаем кол-во '@'
-var counter = 0;
 for (i = 0; i <= emailStr.length; i++) {
     if (emailStr[i] == '@') {
         counter++;
-        console.log(counter);
     }
 }
 
 if (counter == 1) {
-    console.log('1@ -> success');
+    for (var n = 0; n < emailStr.length; n++) {
 
-    //проверка на латинские и допустимые символы
-    for (i = 0; i < emailStr.length; i++) {
-        if (
-            (emailStr[i].charCodeAt() >= 65 && emailStr[i].charCodeAt() <= 90) ||
-            (emailStr[i].charCodeAt() >= 97 && emailStr[i].charCodeAt() <= 122) ||
-            (emailStr[i] == '@' || emailStr[i] == '_' || emailStr[i] == '-' || emailStr[i] == '.')
-        ) {
-            console.log(emailStr[i], 'correct');
+        //проверка на латинские и допустимые символы
+        if ((emailStr[n].charCodeAt() >= 65 && emailStr[n].charCodeAt() <= 90) ||
+            (emailStr[n].charCodeAt() >= 97 && emailStr[n].charCodeAt() <= 122) ||
+            (emailStr[n] == '@' || emailStr[n] == '_' || emailStr[n] == '-' || emailStr[n] == '.')) {
 
-            //проверяем повторяемость спец-символов
-            if ((emailStr[i] == '@' && emailStr[i] == emailStr[i + 1]) ||
-                (emailStr[i] == '_' && emailStr[i] == emailStr[i + 1]) ||
-                (emailStr[i] == '-' && emailStr[i] == emailStr[i + 1]) ||
-                (emailStr[i] == '.' && emailStr[i] == emailStr[i + 1])) {
-                console.log(emailStr[i], emailStr[i + 1], 'ERROR');
-                break;
+            //проверяем повторяемость спец-символов:
+            //перебираем строку
+            for (var i = 0; i < emailStr.length; i++) {
+
+                //сравниваем с массивом с символами
+                for (var ii = 0; ii < allowStr.length; ii++) {
+                    if (emailStr[i] == allowStr[ii] && !error) {
+
+                        //проверяем, стоят ли спец-символы в начале или конце
+                        if ((emailStr[i] == allowStr[ii]) && (emailStr[i] == emailStr[0] || emailStr[i] == emailStr.slice(-1))) {
+                            error = emailStr[i] + ' :start/end error';
+                        }
+
+                        //проверяем на совпадение со следующим символом
+                        for (var iii = 0; iii < allowStr.length; iii++) {
+                            if (emailStr[i + 1] == allowStr[iii]) {
+                                error = emailStr[i] + emailStr[i + 1] + ' :repeat error';
+                            }
+                        }
+                    }
+                }
             }
 
-
         } else {
-            console.log(emailStr[i], 'incorrect');
-            break
+            error = emailStr[n] + ' :lang/char error';
+            break;
         }
     }
-    console.log('hmmm');
+
 } else {
-    console.log('@ error');
+    error = '@ :error';
+}
+
+if (!error) {
+    console.log(emailStr, 'IS VALID');
+} else {
+    console.log(error);
 }

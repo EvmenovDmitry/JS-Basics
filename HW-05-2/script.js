@@ -119,6 +119,21 @@ function sumToOneDigit(num) {
 
 sumToOneDigit(594);
 sumToOneDigit(1234);
-sumToOneDigit(55555);
+sumToOneDigit(55555555);
 sumToOneDigit(828214);
 sumToOneDigit(9);
+
+
+console.log('\n--- task #10 ---');
+
+let someArr = [322, 123, 546, 16, 218, 32, 8, 36, 12, 87];
+
+function printArr(arr, i = 0) {
+    if (i < arr.length) {
+        console.log(arr[i]);
+        i++;
+        printArr(arr, i++);
+    }
+}
+
+printArr(someArr);

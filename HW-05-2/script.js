@@ -1,3 +1,5 @@
+CL = console.log;
+
 console.log('--- task #1 ---');
 
 function someCalc(inputNum) {
@@ -92,66 +94,31 @@ function fib(limit) {
 console.log(fib(1000));
 
 
+
 console.log('\n--- task #9 ---');
 
 
-var i = 0;
-var sum = 0;
 
-// function sumToOne(num) {
+function sumToOneDigit(num) {
+    num = String(num);
 
-//     if (num > 9) {
+    let sum = 0;
 
-//         sum += Number(String(num)[i]);
-//         console.log('sum: ', sum);
-//         i++;
-
-
-//         if (i < String(num).length) {
-//             sumToOne(num);
-//         }
-//         console.log('aaa');
-//         i = 0;
-//         if (num < 9) {
-//             console.log('num < 9');
-//             sum = 0;
-//             i = 0;
-//             return num;
-//         }
-//     }
-// }
-
-function test(num) {
-
-    if (num > 9) {
-
-        console.log('op');
-        i++;
-
-        if (i < String(num).length) {
-            sumToOne(num);
-        }
-        console.log('aaa');
-        i = 0;
-        if (num < 9) {
-            console.log('num < 9');
-            sum = 0;
-            i = 0;
-            return num;
-        }
+    for (let i = 0; i < num.length; i++) {
+        sum += +num[i];
     }
+
+
+    if (sum > 9) {
+        sumToOneDigit(sum);
+    } else {
+        CL(sum);
+    }
+
 }
 
-
-
-
-// console.log('result 1:', sumToOne(594));
-// console.log('result 2:', sumToOne(123));
-// console.log('result 3:', sumToOne(555));
-// console.log('result 4:', sumToOne(828));
-
-
-
-// let lal = 594;
-
-// console.log(Number(String(lal)[0]) + Number(String(lal)[1]));
+sumToOneDigit(594);
+sumToOneDigit(1234);
+sumToOneDigit(55555);
+sumToOneDigit(828214);
+sumToOneDigit(9);

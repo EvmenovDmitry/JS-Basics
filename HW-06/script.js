@@ -58,3 +58,32 @@ CL(abc(6, 1));
 
 
 CL('\n--- task #6 ---');
+
+function dateNowFormat() {
+    let dateNow = new Date();
+
+    let full = [
+        dateNow.getHours(),
+        dateNow.getMinutes(),
+        dateNow.getSeconds(),
+        dateNow.getDay(),
+        dateNow.getMonth() + 1,
+        dateNow.getFullYear()
+    ];
+
+    for (var i = 0; i < full.length; i++) {
+        if (String(full[i]).length == 1) {
+            full[i] = '0' + full[i];
+        }
+    }
+
+    let time = [full[0], full[1], full[2]];
+    let date = [full[3], full[4], full[5]];
+
+    return time.join(':') + ' ' + date.join('.');
+}
+
+CL(dateNowFormat());
+
+
+CL('\n--- task #7 ---');

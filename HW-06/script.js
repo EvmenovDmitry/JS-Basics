@@ -87,3 +87,7 @@ CL(dateNowFormat());
 
 
 CL('\n--- task #7 ---');
+
+var someStr = 'aa aba abba abbba abca abea';
+
+CL(someStr.match(/ab+a/g));

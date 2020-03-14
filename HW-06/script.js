@@ -91,3 +91,25 @@ CL('\n--- task #7 ---');
 var someStr = 'aa aba abba abbba abca abea';
 
 CL(someStr.match(/ab+a/g));
+
+
+CL('\n--- task #8 ---');
+
+someTel = '+375291234567';
+someTel2 = '+3752912345679';
+someTel3 = '375291234567';
+someTel4 = '+375234567';
+someTel5 = '+35291234567';
+
+function telValidateBLR(tel) {
+    format = tel.substr(0, 4) + ' ' + tel.substr(4, 2) + ' ' + tel.substr(6);
+    CL(format);
+    CL(/\+375\ \d{2,}\ \d{5,}/.test(format));
+    CL('---');
+}
+
+telValidateBLR(someTel);
+telValidateBLR(someTel2);
+telValidateBLR(someTel3);
+telValidateBLR(someTel4);
+telValidateBLR(someTel5);
